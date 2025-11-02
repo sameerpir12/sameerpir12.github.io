@@ -1,0 +1,5 @@
+{
+  "name": "Bias-Free Summarizer",
+  "description": "An AI-powered tool that takes articles, news sources, or any text and generates a concise, neutral, and unbiased summary by focusing on core facts and removing loaded language.",
+  "requestFramePermissions": []
+}
