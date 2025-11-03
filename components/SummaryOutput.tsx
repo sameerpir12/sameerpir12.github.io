@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Feedback, FeedbackState } from './Feedback';
+import { Feedback, FeedbackState } from './Feedback.tsx';
 
 interface SummaryOutputProps {
   summary: string;

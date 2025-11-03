@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Loader } from './Loader';
+import { Loader } from './Loader.tsx';
 
 interface ArticleInputProps {
   inputType: 'text' | 'url';

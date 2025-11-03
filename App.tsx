@@ -1,10 +1,11 @@
+
 import React, { useState, useCallback } from 'react';
-import { Header } from './components/Header';
-import { ArticleInput } from './components/ArticleInput';
-import { SummaryOutput } from './components/SummaryOutput';
-import { ErrorMessage } from './components/ErrorMessage';
-import { PoliticalSpectrum } from './components/PoliticalSpectrum';
-import { analyzeAndSummarizeText } from './services/geminiService';
+import { Header } from './components/Header.tsx';
+import { ArticleInput } from './components/ArticleInput.tsx';
+import { SummaryOutput } from './components/SummaryOutput.tsx';
+import { ErrorMessage } from './components/ErrorMessage.tsx';
+import { PoliticalSpectrum } from './components/PoliticalSpectrum.tsx';
+import { analyzeAndSummarizeText } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [inputType, setInputType] = useState<'text' | 'url'>('text');
