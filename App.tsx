@@ -103,7 +103,7 @@ const App: React.FC = () => {
   }, [article, url, inputType, isLoading]);
 
   return (
-    <div className="min-h-screen text-slate-800 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen text-slate-200 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-4xl mx-auto">
         <Header />
         <main className="mt-8 space-y-8">
@@ -127,7 +127,7 @@ const App: React.FC = () => {
             onFeedback={setFeedback}
           />
         </main>
-        <footer className="text-center mt-12 text-slate-500 text-sm">
+        <footer className="text-center mt-12 text-slate-400 text-sm">
           <p>Powered by Gemini API. Designed for educational and informational purposes.</p>
         </footer>
       </div>
