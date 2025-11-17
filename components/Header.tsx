@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const SparkleIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -22,12 +23,12 @@ export const Header: React.FC = () => {
     <header className="text-center">
       <div className="flex items-center justify-center gap-3">
         <SparkleIcon className="w-8 h-8 text-sky-400" />
-        <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
+        <h1 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-400">
           Bias-Free Summarizer
         </h1>
       </div>
-      <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-        Paste any article or text below, or provide a URL. Our AI will distill the core facts, remove the noise, and give you a purely objective summary.
+      <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        Paste any article or text below, or provide a URL. Our AI will distill the core facts into a simple, bulleted summary.
       </p>
     </header>
   );

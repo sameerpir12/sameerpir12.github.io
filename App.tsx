@@ -5,6 +5,7 @@ import { ArticleInput } from './components/ArticleInput.tsx';
 import { SummaryOutput } from './components/SummaryOutput.tsx';
 import { ErrorMessage } from './components/ErrorMessage.tsx';
 import { PoliticalSpectrum } from './components/PoliticalSpectrum.tsx';
+import { StatusMessage } from './components/StatusMessage.tsx';
 import { analyzeAndSummarizeText } from './services/geminiService.ts';
 
 const App: React.FC = () => {
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   const [politicalScore, setPoliticalScore] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<'good' | 'bad' | null>(null);
 
   const handleSummarize = useCallback(async () => {
@@ -22,6 +24,7 @@ const App: React.FC = () => {
 
     setIsLoading(true);
     setError(null);
+    setStatusMessage(null);
     setSummary('');
     setPoliticalScore(null);
     setFeedback(null);
@@ -50,11 +53,15 @@ const App: React.FC = () => {
           return;
         }
 
-        setError('Fetching content from URL...');
-        const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
+        setStatusMessage('Fetching content from URL...');
+        // Use a reliable CORS proxy to fetch URL content
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        const response = await fetch(proxyUrl);
         if (!response.ok) {
           throw new Error(`Failed to fetch URL content. Status: ${response.status}. The resource may be unavailable or blocked.`);
         }
+
+        setStatusMessage('Content retrieved, parsing article...');
         const html = await response.text();
         
         const parser = new DOMParser();
@@ -76,7 +83,7 @@ const App: React.FC = () => {
         }
         
         textToSummarize = content.replace(/\s\s+/g, ' ').trim(); // Clean up whitespace
-        setError(null);
+        setStatusMessage('Content extracted, analyzing with AI...');
       }
 
       const result = await analyzeAndSummarizeText(textToSummarize);
@@ -91,11 +98,12 @@ const App: React.FC = () => {
       }
     } finally {
       setIsLoading(false);
+      setStatusMessage(null);
     }
   }, [article, url, inputType, isLoading]);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen text-slate-800 font-sans flex flex-col items-center p-4 sm:p-6 lg:p-8">
       <div className="w-full max-w-4xl mx-auto">
         <Header />
         <main className="mt-8 space-y-8">
@@ -109,6 +117,7 @@ const App: React.FC = () => {
             onSubmit={handleSummarize}
             isLoading={isLoading}
           />
+          {statusMessage && <StatusMessage message={statusMessage} />}
           {error && <ErrorMessage message={error} />}
           <PoliticalSpectrum score={politicalScore} isLoading={isLoading} />
           <SummaryOutput 
