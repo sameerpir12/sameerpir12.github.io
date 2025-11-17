@@ -32,7 +32,7 @@ export const SummaryOutput: React.FC<SummaryOutputProps> = ({ summary, isLoading
           {isLoading ? (
             <PulsingLoader />
           ) : summary ? (
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-slate-900">
               {summary.split('\n').filter(line => line.trim().length > 0).map((item, index) => (
                 <li key={index}>{item.replace(/^- ?/, '')}</li>
               ))}
