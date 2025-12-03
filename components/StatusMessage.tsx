@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const InfoIcon: React.FC<{ className?: string }> = ({ className }) => (
@@ -12,7 +13,7 @@ interface StatusMessageProps {
 
 export const StatusMessage: React.FC<StatusMessageProps> = ({ message }) => {
   return (
-    <div className="bg-sky-100 border border-sky-300 text-sky-800 px-4 py-3 rounded-md relative flex items-center" role="status">
+    <div className="bg-sky-100 dark:bg-sky-900/40 border border-sky-300 dark:border-sky-700 text-sky-800 dark:text-sky-200 px-4 py-3 rounded-md relative flex items-center transition-colors duration-200" role="status">
       <InfoIcon className="w-5 h-5 mr-3 flex-shrink-0" />
       <span className="block sm:inline">{message}</span>
     </div>

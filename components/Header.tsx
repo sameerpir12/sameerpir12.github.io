@@ -22,12 +22,12 @@ export const Header: React.FC = () => {
     <header className="text-center">
       <div className="flex items-center justify-center gap-3">
         <SparkleIcon className="w-8 h-8 text-white" />
-        <h1 className="font-gothic text-5xl sm:text-6xl font-bold text-white tracking-wider">
-          Bias-Free Summarizer
+        <h1 className="font-brand text-6xl sm:text-7xl font-bold text-white tracking-tight">
+          ZeroSpin
         </h1>
       </div>
-      <p className="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
-        Paste any article or text below, or provide a URL. Our AI will distill the core facts into a simple, bulleted summary.
+      <p className="mt-6 text-lg text-slate-300 max-w-2xl mx-auto font-light">
+        News without the noise. Paste any article or URL to strip away the bias and get just the facts.
       </p>
     </header>
   );

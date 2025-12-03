@@ -31,12 +31,12 @@ export const Feedback: React.FC<FeedbackProps> = ({ feedback, onFeedback }) => {
                 <p className="text-sm font-medium text-emerald-500">Thanks for your feedback!</p>
             ) : (
                 <div className="flex items-center gap-6">
-                    <p className="text-sm font-medium text-slate-600">Was this summary helpful?</p>
+                    <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Was this summary helpful?</p>
                     <div className="flex items-center gap-2">
                         <button 
                             onClick={() => onFeedback('good')} 
                             disabled={hasGivenFeedback}
-                            className={`p-2 rounded-full transition-colors duration-200 ${feedback === 'good' ? 'bg-emerald-500/20 text-emerald-500' : 'text-slate-500 hover:bg-slate-200 hover:text-emerald-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-emerald-500'}`}
+                            className={`p-2 rounded-full transition-colors duration-200 ${feedback === 'good' ? 'bg-emerald-500/20 text-emerald-500' : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-slate-900 focus:ring-emerald-500'}`}
                             aria-label="Good summary"
                         >
                            <ThumbsUpIcon className="w-5 h-5" />
@@ -44,7 +44,7 @@ export const Feedback: React.FC<FeedbackProps> = ({ feedback, onFeedback }) => {
                         <button 
                             onClick={() => onFeedback('bad')} 
                             disabled={hasGivenFeedback}
-                            className={`p-2 rounded-full transition-colors duration-200 ${feedback === 'bad' ? 'bg-red-500/20 text-red-500' : 'text-slate-500 hover:bg-slate-200 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 focus:ring-red-500'}`}
+                            className={`p-2 rounded-full transition-colors duration-200 ${feedback === 'bad' ? 'bg-red-500/20 text-red-500' : 'text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-slate-900 focus:ring-red-500'}`}
                             aria-label="Bad summary"
                         >
                             <ThumbsDownIcon className="w-5 h-5" />

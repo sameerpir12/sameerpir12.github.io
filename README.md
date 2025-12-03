@@ -2,7 +2,7 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Bias-Free Summarizer
+# ZeroSpin
 
 This project is an AI-powered web application that analyzes news articles and other text to provide users with a neutral, fact-based summary and an analysis of the source's political leaning.
 
@@ -23,7 +23,7 @@ When we send the user's text to the Google Gemini API, we include a detailed "sy
 
 1.  **Assume an Expert Role**: We first tell the AI to act as an "expert summarizer and political analyst." This puts it in the right mindset for the task.
 2.  **State the Goal Clearly**: The primary instruction is to produce a "concise, neutral, and unbiased summary."
-3.  **Define What to Remove**: Crucially, we explicitly tell the AI what to eliminate from the text:
+3.  **Define What to Remove**: Crucially, we explicitly tell the AI to eliminate from the text:
     *   **Loaded Language**: Words designed to evoke a strong emotional reaction (e.g., "devastating," "heroic," "scandalous").
     *   **Emotional Appeals**: Arguments that target feelings rather than logic.
     *   **Opinions**: Subjective statements that cannot be verified as facts.
